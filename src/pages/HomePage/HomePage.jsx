@@ -3,7 +3,7 @@ import { apiTrendingMovies } from "../../api";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useEffect, useState } from "react";
 
-// import css from "./HomePage.module.css";
+import css from "./HomePage.module.css";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -30,7 +30,7 @@ export default function HomePage() {
       <h1>Trending today</h1>
       {isloding && <ClipLoader color="rgb(255, 163, 34)" />}
       {movies.length > 0 && <MovieList movies={movies} />}
-      {error && <p>Oops! Please, try again</p>}
+      {error && <p className={css.error}>Oops! Please, try again</p>}
     </>
   );
 }

@@ -1,10 +1,12 @@
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { apiDetailsMovie } from "../../api";
 import { useEffect, useRef, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 import css from "./MovieDetailsPage.module.css";
+import clsx from "clsx";
 
 export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
@@ -33,32 +35,54 @@ export default function MovieDetailsPage() {
 
   return (
     <>
-      <div>
-        <Link to={refLocation.current}>Go back</Link>
+      <div className={css.wrapperLinkGoBack}>
+        <Link className={css.linkGoBack} to={refLocation.current}>
+          <FaArrowLeftLong />
+          Go back
+        </Link>
       </div>
       {isLoding && <ClipLoader color="rgb(255, 163, 34)" />}
       {movie && (
         <>
-          <img
-            src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
-            alt={movie.title}
-          ></img>
-          <div>
-            <p>{movie.title}</p>
-            <p>User Score: {movie.vote_average}</p>
-            <p>Owerview</p>
-            <p>{movie.overview}</p>
-            <p>Genres</p>
-            <p>{movie.genres.map((item) => item.name).join(", ")}</p>
+          <div className={css.wrapperMovie}>
+            <div className={css.wrapperImg}>
+              <img
+                className={css.img}
+                src={"https://image.tmdb.org/t/p/w300" + movie.backdrop_path}
+                alt={movie.title}
+              ></img>
+            </div>
+            <div>
+              <h1>{movie.title}</h1>
+              <p>User Score: {movie.vote_average}</p>
+              <h2>Owerview</h2>
+              <p>{movie.overview}</p>
+              <h2>Genres</h2>
+              <p>{movie.genres.map((item) => item.name).join(", ")}</p>
+            </div>
           </div>
-          <div>
-            <p>Additional Information</p>
+          <div className={css.wrapperAddInfo}>
+            <h2>Additional Information</h2>
             <ul>
               <li>
-                <Link to="cast">Cast</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    clsx(css.navLink, isActive && css.isActive)
+                  }
+                  to="cast"
+                >
+                  Cast
+                </NavLink>
               </li>
               <li>
-                <Link to="reviews">Reviews</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    clsx(css.navLink, isActive && css.isActive)
+                  }
+                  to="reviews"
+                >
+                  Reviews
+                </NavLink>
               </li>
             </ul>
           </div>

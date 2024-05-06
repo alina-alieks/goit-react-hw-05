@@ -1,0 +1,15 @@
+.error {
+  color: rgb(255, 163, 34);
+  font-weight: 600;
+}
+
+.author {
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+
+.review {
+  width: 100%;
+  height: 100px;
+  overflow: auto;
+}

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { apiReviews } from "../../api";
 import { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import css from "./MovieReviews.module.css";
 
 export default function MovieReviews() {
   const { movieId } = useParams();
@@ -30,14 +31,14 @@ export default function MovieReviews() {
       {reviews.length > 0 ? (
         reviews.map((review) => (
           <li key={review.id}>
-            <p>Author: {review.author}</p>
-            <p>{review.content}</p>
+            <h3 className={css.author}>Author: {review.author}</h3>
+            <p className={css.review}>{review.content}</p>
           </li>
         ))
       ) : (
         <p>We don't have ane reviews for this movie</p>
       )}
-      {error && <p>Oops! Please, try again.</p>}
+      {error && <p className={css.error}>Oops! Please, try again.</p>}
     </ul>
   );
 }

@@ -27,20 +27,21 @@ export default function MovieCast() {
   }, [movieId]);
 
   return (
-    <ul>
+    <ul className={css.wrapperCast}>
       {isloding && <ClipLoader color="rgb(255, 163, 34)" />}
       {casts &&
         casts.map((cast) => (
-          <li key={cast.id}>
+          <li className={css.item} key={cast.id}>
             <img
-              src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}
+              className={css.img}
+              src={`https://image.tmdb.org/t/p/w200${cast.profile_path}`}
               alt={cast.name}
             />
-            <p>{cast.name}</p>
+            <h3>{cast.name}</h3>
             <p>Character: {cast.character}</p>
           </li>
         ))}
-      {error && <p>Oops! Please, try again.</p>}
+      {error && <p className={css.error}>Oops! Please, try again.</p>}
     </ul>
   );
 }

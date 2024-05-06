@@ -1,0 +1,22 @@
+.wrapperCast {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.img {
+  display: block;
+  width: 120px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.item {
+  width: 120px;
+}
+
+.error {
+  color: rgb(255, 163, 34);
+  font-weight: 600;
+}

@@ -1,0 +1,12 @@
+.link {
+  font-weight: 600;
+}
+
+.link:hover,
+.link:focus {
+  color: rgb(255, 163, 34);
+}
+
+.list {
+  margin-top: 20px;
+}

@@ -1,0 +1,35 @@
+.error {
+  color: rgb(255, 163, 34);
+  font-weight: 600;
+}
+.form {
+  margin-bottom: 20px;
+}
+.input {
+  padding: 8px 16px;
+  background-color: antiquewhite;
+  border-radius: 6px;
+  border: 1px solid rgb(255, 163, 34);
+  margin-right: 16px;
+  outline: transparent;
+}
+
+.input:hover,
+.input:focus,
+.input:active {
+  border: 2px solid rgb(255, 163, 34);
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: antiquewhite;
+
+  border-radius: 6px;
+}
+.btn:hover,
+.btn:focus {
+  background-color: rgb(255, 163, 34);
+  font-weight: 600;
+  color: antiquewhite;
+}
