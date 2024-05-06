@@ -1,0 +1,24 @@
+.wrapperNav {
+  display: flex;
+  gap: 20px;
+  box-shadow: 0 6px 4px -4px rgba(255, 163, 34, 0.6);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.link {
+  padding: 8px 16px;
+  background-color: antiquewhite;
+
+  border-radius: 6px;
+}
+.link:hover,
+.link:focus {
+  font-weight: 600;
+}
+
+.isActive {
+  background-color: rgb(255, 163, 34);
+  font-weight: 600;
+  color: antiquewhite;
+}
